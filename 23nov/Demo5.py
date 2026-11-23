@@ -1,0 +1,5 @@
+a=[10,20,30]
+x=iter(a)
+print(next(x))
+print(next(x))
+print(next(x))
