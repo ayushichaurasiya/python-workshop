@@ -1,0 +1,79 @@
+
+<html>
+<head>
+    <title>Form Validation</title>
+
+    <script>
+        function validation()
+        {
+            var firstname, mobile, password;
+            var reg1, reg2, reg3;
+
+            firstname = document.getElementById("firstname").value;
+            mobile = document.getElementById("mobile").value;
+            password = document.getElementById("password").value;
+
+            reg1 = /^[a-zA-Z]+$/;
+            reg2 = /^[6-9]\d{9}$/;
+            reg3 = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&*!]).{8,}$/;
+
+            var error = "";
+
+            if(firstname.length == 0)
+            {
+                error += "Enter first name\n";
+            }
+            else if(!reg1.test(firstname))
+            {
+                error += "Enter only characters in first name\n";
+            }
+
+            if(mobile.length == 0)
+            {
+                error += "Enter mobile number\n";
+            }
+            else if(!reg2.test(mobile))
+            {
+                error += "Invalid mobile number\n";
+            }
+
+            if(password.length == 0)
+            {
+                error += "Enter password\n";
+            }
+            else if(!reg3.test(password))
+            {
+                error += "Invalid password\n";
+            }
+
+            if(error != "")
+            {
+                alert(error);
+            }
+            else
+            {
+                alert("Profile created successfully");
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    First Name:
+    <input type="text" id="firstname">
+    <br><br>
+
+    Mobile No:
+    <input type="text" id="mobile" maxlength="10">
+    <br><br>
+
+    Password:
+    <input type="password" id="password">
+    <br><br>
+
+    <input type="button" value="Create Profile"
+    onclick="validation()">
+
+</body>
+</html>
